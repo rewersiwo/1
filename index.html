@@ -1,3 +1,6 @@
+from IPython.display import HTML
+
+html_code = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,25 +19,22 @@
 
         .envelope {
             position: relative;
-            width: 300px;
-            height: 200px;
-            background-color: #f9e5b4;
-            border: 10px solid #e74c3c;
+            width: 200px;
+            height: 150px;
+            background-color: #ffffff;
+            border: 2px solid #e74c3c;
             border-radius: 10px;
             cursor: pointer;
             overflow: hidden;
         }
 
-        .triangle {
+        .heart-icon {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            width: 50px;
-            height: 50px;
-            background-color: #e74c3c;
-            clip-path: polygon(0 0, 100% 0, 50% 100%);
-            cursor: pointer;
+            top: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            fill: #e74c3c;
         }
 
         .message {
@@ -50,6 +50,10 @@
             opacity: 0;
             transition: opacity 1s;
             z-index: 2;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"%3E%3Cpath d="M12 21.35l-1.45-1.32C5.4 14.25 2 11.45 2 7.5 2 4.42 4.42 2 7.5 2 9.12 2 10.65 2.89 12 4.46 13.35 2.89 14.88 2 16.5 2 19.58 2 22 4.42 22 7.5c0 3.95-3.4 6.75-8.55 12.54L12 21.35z" fill="%23e74c3c" /%3E%3C/svg%3E');
+            background-size: contain;
+            background-repeat: no-repeat;
+            border-radius: 50%;
         }
 
         .card {
@@ -72,7 +76,9 @@
 </head>
 <body>
     <div class="envelope" onclick="toggleEnvelope()">
-        <div class="triangle"></div>
+        <div class="heart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 14.25 2 11.45 2 7.5 2 4.42 4.42 2 7.5 2 9.12 2 10.65 2.89 12 4.46 13.35 2.89 14.88 2 16.5 2 19.58 2 22 4.42 22 7.5c0 3.95-3.4 6.75-8.55 12.54L12 21.35z"/></svg>
+        </div>
         <div class="message" id="message">Czaruś, kocham Cię najmocniej na świecie, jesteś dla mnie wszystkim!</div>
         <div class="card"></div>
     </div>
@@ -90,4 +96,7 @@
         }
     </script>
 </body>
-</html>              
+</html>
+"""
+
+HTML(html_code)
